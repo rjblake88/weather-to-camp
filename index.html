@@ -12,7 +12,7 @@
 </head>
 
 <header>
-    <div class="grid-x  grid-margin-x-3">
+    <div class="grid-x  grid-margin-x-3" id="head-text">
         <div class="cell">
             <h1 class="text-center">weather to camp ... or not? <i class="fas fa-mountain"></i><i class="fas fa-cloud-sun"></i></h1>
             
@@ -28,8 +28,8 @@
     <!--search form-->
       <form>
         <div class="grid-container">
-            <div class="grid-x grid-padding-x align-center">
-                <div class="medium-6 cell search-bar">              
+            <div class="grid-x grid-padding-x align-center-middle">
+                <div class="medium-2 cell search-bar">              
                     <input type="text" id="search-bar" list="states" placeholder="Search By State"> 
                     <datalist id="states">
                         <option value="AL">
@@ -93,19 +93,10 @@
             <div class="medium-2 cell">
             <button type="button" class="button rounded bordered shadow success" id="search-btn">Search</button>
         </div>
+    </div>
+    <!--map container-->
+        <div class="grid-x grid-padding-x align-center" id="map-container">
         <div id="map"></div>
-         <!-- cards to display search result for campsites-->
-         <div class="card-container">
-         <div class="card" style="width: 300px;display:none" id="card1">
-            <div class="card-divider" id="card-header">
-              
-            </div>
-            <div class="card-section">
-              <h4>Atwell Mill Campground</h4>
-              <a href="https://www.nps.gov/seki/planyourvisit/atwell.htm" target="_blank">https://www.nps.gov/seki/planyourvisit/atwell.htm</a>
-            </div>
-          </div>
-
         </div> 
 
     <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
