@@ -5,6 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/foundation-sites@6.7.4/dist/css/foundation.min.css" crossorigin="anonymous">
+<<<<<<< HEAD
     <link rel="stylesheet" href="style.css">
     <script src="https://kit.fontawesome.com/56276ebf22.js" crossorigin="anonymous"></script>
     <title>weather to camp</title>
@@ -66,5 +67,116 @@
           </div>
         </div>    
             
+=======
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" 
+        integrity="sha512-xodZBNTC5n17Xt2atTPuE1HxjVMSvLVW9ocqUKLsCC5CXdbqCmblAshOMAS6/keqq/sMZMZ19scR4PsZChSR7A==" 
+        crossorigin=""/>
+    <link rel="stylesheet" href="assets\css\style.css"/>
+</head>
+
+<header>
+    <div class="grid-x  grid-margin-x-3">
+        <div class="cell">
+            <!--new hero-->
+            <div class="hero-section">
+                <div class="hero-section-text text-center">
+                  <h1>weather to camp ... or not? <i class="fas fa-mountain"></i><i class="fas fa-cloud-sun"></i></h1>
+                  <h5>Welcome to weather to camp-- an app designed to show you campsite locations and projected weather! <br>
+                To get started, simply select a state in the search bar!</h5>
+                </div>
+              </div>
+
+           
+            
+        </div>        
+    </div>
+</header>
+
+<body>
+    <!--search form-->
+      
+        <div class="grid-container search-container">
+            <div class="grid-x grid-padding-x align-center">
+                <!--new search bar-->
+                <div class="input-group input-group-rounded cell small-8">
+                    <input class="input-group-field" type="search" id="search-bar" list="states" placeholder="Search by state">
+                    <div class="input-group-button">
+                      <input type="submit" class="button success" value="Search" id="search-btn">
+                      <datalist id="states">
+                        <option value="AL">
+                        <option value="AK">
+                        <option value="AS">
+                        <option value="AZ">
+                        <option value="AR">
+                        <option value="CA">
+                        <option value="CO">
+                        <option value="CT">
+                        <option value="DE">
+                        <option value="DC">
+                        <option value="FL">
+                        <option value="GA">
+                        <option value="GU">
+                        <option value="HI">
+                        <option value="ID">
+                        <option value="IL">
+                        <option value="IN">
+                        <option value="IA">
+                        <option value="KS">
+                        <option value="KY">
+                        <option value="LA">
+                        <option value="ME">
+                        <option value="MD">
+                        <option value="MA">
+                        <option value="MI">
+                        <option value="MN">
+                        <option value="MS">
+                        <option value="MO">
+                        <option value="MT">
+                        <option value="NE">
+                        <option value="NV">
+                        <option value="NH">
+                        <option value="NJ">
+                        <option value="NM">
+                        <option value="NY">
+                        <option value="NC">
+                        <option value="ND">
+                        <option value="MP">
+                        <option value="OH">
+                        <option value="OK">
+                        <option value="OR">
+                        <option value="PA">
+                        <option value="PR">
+                        <option value="RI">
+                        <option value="SC">
+                        <option value="SD">
+                        <option value="TN">
+                        <option value="TX">
+                        <option value="UT">
+                        <option value="VT">
+                        <option value="VA">
+                        <option value="VI">
+                        <option value="WA">
+                        <option value="WV">
+                        <option value="WI">
+                        <option value="WY">
+                    </datalist>  
+                </div>
+                </div>
+            </div>
+                
+        <!--map div-->
+        <div class="grid-x grid-padding-x align-center" id="map-container">     
+        <div id="map"></div>
+    </div> 
+         <!-- cards to display search result for campsites-->
+         
+
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js" 
+        integrity="sha512-XQoYMqMTK8LvdxXYG3nZ448hOEQiglfqkJs1NOQV44cWnUrBc8PkAOcXy20w0vlaXaVUearIOBhiXZ5V3ynxwA==" 
+        crossorigin=""></script>
+    <script src="https://kit.fontawesome.com/56276ebf22.js" crossorigin="anonymous"></script>
+    <script src="assets\js\script.js"></script>
+>>>>>>> demo-styling
 </body>
 </html>
