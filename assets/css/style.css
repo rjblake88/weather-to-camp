@@ -1,3 +1,5 @@
+
+
 #map { 
     width: 600px;
     height: 400px;
@@ -7,15 +9,15 @@
 .input-group-rounded .input-group-field {
     border-radius: 5000px 0 0 5000px;
     padding-left: 1rem;
-  }
+}
   
-  .input-group-rounded .input-group-button .button {
+.input-group-rounded .input-group-button .button {
     border-radius: 0 5000px 5000px 0;
     font-size: 0.8rem;
-  }
+}
   
 
-  .hero-section {
+.hero-section {
     background: url("../photo-1510312305653-8ed496efae75.jpg") 50% no-repeat;
     background-size: cover;
     background-position: 80%;
@@ -33,14 +35,14 @@
     -webkit-justify-content: center;
         -ms-flex-pack: center;
             justify-content: center;
-  }
+}
   
-  .hero-section .hero-section-text {
+.hero-section .hero-section-text {
     color: #fefefe;
     text-shadow: 1.5px 1.5px 2.5px #0a0a0a;
-  }
+}
   
-  #map {
-      margin-bottom: 20px;
-      box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
-  }
+#map {
+    margin-bottom: 20px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+}
