@@ -1,4 +1,18 @@
-// Load Map & Markers
+//Load recent searches from local storage
+
+loadData();
+function loadData() {
+    if (localStorage.getItem("searches")) {
+        var searches = JSON.parse(localStorage.getItem("searches"));
+        
+        for (var i=0; i < searches.length; i++) {
+            allCampsites(searches[i]);
+        }
+    }
+};
+
+
+// Load Map
 
 var mymap = L.map('map').setView([39.833338, -98.890899], 4);
 
@@ -12,7 +26,7 @@ L.tileLayer('https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_toke
 }).addTo(mymap);
 
 
-// Get Campsite Coords/name/Url
+// Get Campsite Coords/Name/Url
 
 function allCampsites(state) {
     Promise.all([
@@ -34,11 +48,18 @@ function allCampsites(state) {
     })
 }
 
-// Search By State
 
+// Search By State & Save Search to Local Storage
+
+var searches = [];
 $("#search-btn").on("click", function() {
     var state = $("#search-bar").val();
-    allCampsites(state);
+    
+
+    allCampsites(state);    
+
+    searches.push($("#search-bar").val());
+    localStorage.setItem('searches', JSON.stringify(searches));
 });
 
 
@@ -58,3 +79,11 @@ function getCampsiteWeather(lat, lon, campsiteName, campsiteUrl, totalSites) {
         marker.bindPopup("<img src='http://openweathermap.org/img/wn/" + data.current.weather[0].icon + "@2x.png'>" + "<br><b>" + campsiteName + "</b><br><a href=" + campsiteUrl + "  target='_blank'>" + campsiteUrl + "</a><br><br id='"+ lat +"'>" + lat + " <br id='"+ lon +"'>" + lon + "<br><br> Total Sites: " + totalSites + "<br>" + "<b> Current Weather:  "  + data.current.weather[0].description + ", " + (Math.round(((((data.current.temp)-273.15)*1.8)+32))) + " °F<b><br>").openPopup();
     });
 };
+
+
+// Clear Local Storage & Reload Page
+
+$("#clear-btn").on("click", function() {
+    localStorage.clear();
+    location.reload();
+});
