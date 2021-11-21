@@ -14,39 +14,47 @@ L.tileLayer('https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_toke
 
 // Get Campsite Coords/name/Url
 
-function getCampsites(state) {
-    var apiUrl = "https://developer.nps.gov/api/v1/campgrounds?stateCode=" + state + "&limit=50&start=0&api_key=UvgAMzaiAVvGaHIArhZU2CAxBdpxtaKQBrhjcWMO";
-    fetch(apiUrl)
-        .then(function(response) {
-            return response.json();
-        })
-        .then(function(data) {
-            for (var i=0; i < data.data.length; i++) {
-            getCampsiteWeather(data.data[i].latitude, data.data[i].longitude, data.data[i].name, data.data[i].url);
-            }
-        });
-};
+function allCampsites(state) {
+    Promise.all([
+        fetch("https://developer.nps.gov/api/v1/campgrounds?stateCode=" + state + "&limit=50&start=0&api_key=UvgAMzaiAVvGaHIArhZU2CAxBdpxtaKQBrhjcWMO"),
+        fetch("https://developer.nps.gov/api/v1/campgrounds?stateCode=" + state + "&limit=50&start=50&api_key=UvgAMzaiAVvGaHIArhZU2CAxBdpxtaKQBrhjcWMO")
+    ]).then(function (responses) {
 
+        return Promise.all(responses.map(function (response) {
+            return response.json();
+        }));
+    }).then(function (data) {
+
+        for (var k=0; k < data.length; k++) {
+            for (var i=0; i < data[k].data.length; i++) {    
+                getCampsiteWeather(data[k].data[i].latitude, data[k].data[i].longitude, data[k].data[i].name, data[k].data[i].url, data[k].data[i].campsites.totalSites);
+            }
+        }
+        
+    })
+}
 
 // Search By State
 
 $("#search-btn").on("click", function() {
     var state = $("#search-bar").val();
-    getCampsites(state);
+    allCampsites(state);
 });
+
 
 
 // Get Weather With Campsite Coords & Display
 
-function getCampsiteWeather(lat, lon, campsiteName, campsiteUrl) {
-    var apiUrl = "https://api.openweathermap.org/data/2.5/onecall?lat="+lat+"&lon="+lon+"&exclude={part}&appid=b451e261be7a552705f2a22389c1a371";
+function getCampsiteWeather(lat, lon, campsiteName, campsiteUrl, totalSites) {
+    var apiUrl = "https://api.openweathermap.org/data/2.5/onecall?lat="+lat+"&lon="+lon+"&exclude={part}&appid=a17effb6e2f6f4faab4898274ceedfa4";
     fetch(apiUrl)
       .then(function(response) {
         return response.json();
         })
     .then(function(data) {
+
         var marker = L.marker([lat, lon]).addTo(mymap);
-        marker.bindPopup("<b>" + campsiteName + "</b><br><a href=" + campsiteUrl + "  target='_blank'>" + campsiteUrl + "</a><br><b> Current Weather: " + data.current.weather[0].description + ", " + (Math.round(((((data.current.temp)-273.15)*1.8)+32))) + " °F</b>" ).openPopup();
-        console.log(data);
+        
+        marker.bindPopup("<img src='http://openweathermap.org/img/wn/" + data.current.weather[0].icon + "@2x.png'>" + "<br><b>" + campsiteName + "</b><br><a href=" + campsiteUrl + "  target='_blank'>" + campsiteUrl + "</a><br><br id='"+ lat +"'>" + lat + " <br id='"+ lon +"'>" + lon + "<br><br> Total Sites: " + totalSites + "<br>" + "<b> Current Weather:  "  + data.current.weather[0].description + ", " + (Math.round(((((data.current.temp)-273.15)*1.8)+32))) + " °F<b><br>").openPopup();
     });
 };

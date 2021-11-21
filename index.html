@@ -14,24 +14,32 @@
 <header>
     <div class="grid-x  grid-margin-x-3">
         <div class="cell">
-            <h1 class="text-center">weather to camp ... or not? <i class="fas fa-mountain"></i><i class="fas fa-cloud-sun"></i></h1>
+            <!--new hero-->
+            <div class="hero-section">
+                <div class="hero-section-text text-center">
+                  <h1>weather to camp ... or not? <i class="fas fa-mountain"></i><i class="fas fa-cloud-sun"></i></h1>
+                  <h5>Welcome to weather to camp-- an app designed to show you campsite locations and projected weather! <br>
+                To get started, simply select a state in the search bar!</h5>
+                </div>
+              </div>
+
+           
             
-            <p class="text-center hero">
-                Welcome to weather to camp-- an app designed to show you campsite locations and projected weather! <br>
-                To get started, simply type in a location to get searchin'!
-            </p>
         </div>        
     </div>
 </header>
 
 <body>
     <!--search form-->
-      <form>
-        <div class="grid-container">
+      
+        <div class="grid-container search-container">
             <div class="grid-x grid-padding-x align-center">
-                <div class="medium-6 cell search-bar">              
-                    <input type="text" id="search-bar" list="states" placeholder="Search By State"> 
-                    <datalist id="states">
+                <!--new search bar-->
+                <div class="input-group input-group-rounded cell small-8">
+                    <input class="input-group-field" type="search" id="search-bar" list="states" placeholder="Search by state">
+                    <div class="input-group-button">
+                      <input type="submit" class="button success" value="Search" id="search-btn">
+                      <datalist id="states">
                         <option value="AL">
                         <option value="AK">
                         <option value="AS">
@@ -88,25 +96,23 @@
                         <option value="WV">
                         <option value="WI">
                         <option value="WY">
-                    </datalist>             
+                    </datalist>  
                 </div>
-            <div class="medium-2 cell">
-            <button type="button" class="button rounded bordered shadow success" id="search-btn">Search</button>
-        </div>
+                </div>
+            </div>
+                
+        <!--map div-->
+        <div class="grid-x grid-padding-x align-center" id="map-container">     
         <div id="map"></div>
-         <!-- cards to display search result for campsites-->
-         <div class="card-container">
-         <div class="card" style="width: 300px;display:none" id="card1">
-            <div class="card-divider" id="card-header">
-              
-            </div>
-            <div class="card-section">
-              <h4>Atwell Mill Campground</h4>
-              <a href="https://www.nps.gov/seki/planyourvisit/atwell.htm" target="_blank">https://www.nps.gov/seki/planyourvisit/atwell.htm</a>
-            </div>
-          </div>
-
-        </div> 
+    </div> 
+        <!--footer-->
+    <div class="grid-container" id="footer-div">
+        <div class="grid-x grid-margin-x align-right">
+            <h6 class="subheader text-center">&copy; IRL Development</h6>           
+        </div>
+      </div>
+ 
+         
 
     <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
     <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js" 
