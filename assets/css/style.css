@@ -23,7 +23,7 @@
 }
 
 .hero-section {
-    background: url("../photo-1510312305653-8ed496efae75.jpg") 50% no-repeat;
+    background: url("../images/photo-1510312305653-8ed496efae75.jpg") 50% no-repeat;
     background-size: cover;
     background-position: 80%;
     height: 60vh;
@@ -45,4 +45,8 @@
 .hero-section .hero-section-text {
     color: #fefefe;
     text-shadow: 1.5px 1.5px 2.5px #0a0a0a;
+}
+
+datalist {
+    width: 100%;
 }
