@@ -6,7 +6,6 @@ Weather to Camp is used to show campsite locations and their weather on a map. T
 
 
 ## Website URL
-https://github.com/rjblake88/weather-to-camp/
-
+https://rjblake88.github.io/weather-to-camp/
 
 ![](assets/images/weathertocamp.PNG)
