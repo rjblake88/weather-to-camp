@@ -67,7 +67,7 @@ $("#search-btn").on("click", function() {
 // Get Weather With Campsite Coords & Display
 
 function getCampsiteWeather(lat, lon, campsiteName, campsiteUrl, totalSites) {
-    var apiUrl = "https://api.openweathermap.org/data/2.5/onecall?lat="+lat+"&lon="+lon+"&exclude={part}&appid=a17effb6e2f6f4faab4898274ceedfa4";
+    var apiUrl = "https://api.openweathermap.org/data/2.5/onecall?lat="+lat+"&lon="+lon+"&exclude={part}&appid=f0b59db926725d50ddbe37a1957526a8";
     fetch(apiUrl)
       .then(function(response) {
         return response.json();
